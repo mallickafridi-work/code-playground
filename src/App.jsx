@@ -1,4 +1,5 @@
 import Blocks from './components/Blocks'
+import FakeAPI from './components/FakeAPI'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
       <div className='app py-5'>
         <Blocks />
         <hr className='my-5' />
+        <FakeAPI />
       </div>
     </>
   )
