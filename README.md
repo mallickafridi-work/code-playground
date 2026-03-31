@@ -1,16 +1,38 @@
-# React + Vite
+# Code Playground
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal **React code playground / sandbox** where I experiment with ideas, test snippets, and explore different React concepts.
+This repository is mainly used for trying out new approaches, debugging concepts, and learning through small experiments.
 
-Currently, two official plugins are available:
+## 🧪 Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The goal of this project is to have a flexible environment for:
 
-## React Compiler
+* Testing React code snippets
+* Experimenting with JavaScript concepts
+* Trying new UI ideas
+* Debugging small problems
+* Learning by building quick prototypes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ Tech Stack
 
-## Expanding the ESLint configuration
+* **React**
+* **Vite**
+* **JavaScript**
+* **CSS**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 About the Repository
+
+This project does not represent a single production-ready application.
+Instead, it acts as a **coding sandbox** where different experiments and ideas may be added, modified, or removed over time.
+
+## 📌 Notes
+
+* Code in this repository may change frequently.
+* Some experiments may be incomplete or temporary.
+* The project exists primarily for **learning and exploration**.
+
+## 👨‍💻 Author
+
+**Afridi Mallick**
+
+GitHub: https://github.com/AfridiMallick
