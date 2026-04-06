@@ -23,7 +23,7 @@
 
   font: 20px/145% var(--sans);
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -45,8 +45,7 @@
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --shadow: rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 }
 
@@ -61,4 +60,34 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+
+.sign-in-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  color: black;
+  border: 1px solid white;
+  background-color: white;
+  width: 300px;
+}
+
+.submit-button {
+  border: 1px solid white;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.submit-button:active {
+  background-color: red;
+  color: black;
 }

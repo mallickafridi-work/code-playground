@@ -1,0 +1,15 @@
+{
+  "_id": 1,
+  "userId": 1,
+  "orderDate": "2025-06-01T10:00:00Z",
+  "status": "Delivered",
+  "totalAmount": 559.99,
+  "items": [
+    {
+      "productId": 101,
+      "name": "Canon EOS Rebel T100",
+      "quantity": 1,
+      "price": 559.99
+    }
+  ]
+}
