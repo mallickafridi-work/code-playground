@@ -42,7 +42,7 @@ const Blocks = () => {
       <div className='flex gap-1 p-1 items-center justify-center'>
         {items.map((item, index) => createDiv(item, index))}
       </div >
-      <p className='py-5'>click on the blocks above to activate them and then reset button to deactive in the order of activation </p>
+      <p className='py-5'>click on the blocks above to activate them and then click on the reset button to deactive the blocks in the reverse-order of activation </p>
       <button className='border-2 w-fit mx-auto px-10' onClick={resetStyle}>Reset</button>
     </div>
     </>
