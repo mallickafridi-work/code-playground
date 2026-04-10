@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Filter = () => {
 
@@ -38,16 +39,23 @@ const Filter = () => {
     // 👇 Below code creates Card Div for users
 
     function createCard(user, index) {
+
         return (
-            <div
+
+            <Link to={`/${user.id}`}
+
                 key={user.id}
-                className="flex flex-col items-center border-2 h-50 min-w-50">
+                className="flex flex-col items-center border-2 min-w-50 hover:bg-emerald-900 hover:text-white">
                 <div className="flex justify-center items-center">
                     <img src={user.image} alt="" />
                 </div>
+                <p className="p-1 w-fit"> User Id: {user.id}</p>
                 <p className="p-1 w-fit"> First name: {user.firstName}</p>
                 <p className="p-1 w-fit"> Last name: {user.lastName}</p>
-            </div>
+
+
+            </Link >
+
         )
     }
 
@@ -68,14 +76,14 @@ const Filter = () => {
         <div className='filter flex flex-col items-center'>
             <p>This is a basic filter</p>
             <input
-                className="bg-gray-50 text-black my-4 h-6"
+                className="input my-4 h-6"
                 placeholder="Search by Name"
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
             <p className="mb-6 w-40">example: search for Emma / emma </p>
-            <div className="flex justify-center gap-6 border-2 bg-grey overflow-x-auto h-70 w-full px-10 py-5">
+            <div className="flex justify-center gap-6 border-2 bg-grey overflow-x-auto h-80 w-full px-10 py-5">
                 {content}
             </div>
         </div>
