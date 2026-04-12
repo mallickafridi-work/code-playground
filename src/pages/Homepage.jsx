@@ -15,7 +15,7 @@ function Homepage() {
             <ThemeToggle />
           </div>
         </div>
-        <div class Name='app py-5'>
+        <div className='app py-5'>
           <Blocks />
           <hr className='my-5' />
           <Filter />
