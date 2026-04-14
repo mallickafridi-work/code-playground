@@ -19,7 +19,7 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="absolute right-4 top-2 p-2 rounded-full bg-gray-200 dark:bg-gray-800 
+            className="relative left-[35%] p-2 rounded-full bg-gray-200 dark:bg-gray-800 
                  text-gray-800 dark:text-gray-200 
                  transition-transform hover:scale-105"
         >

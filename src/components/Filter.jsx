@@ -25,7 +25,6 @@ const Filter = () => {
                     return firstName.includes(query) || lastName.includes(query);
                 });
                 setResults(filteredUsers)
-
             }
 
             catch (err) {
@@ -41,9 +40,7 @@ const Filter = () => {
     function createCard(user, index) {
 
         return (
-
             <Link to={`/${user.id}`}
-
                 key={user.id}
                 className="flex flex-col items-center border-2 min-w-50 hover:bg-emerald-900 hover:text-white">
                 <div className="flex justify-center items-center">
@@ -52,8 +49,6 @@ const Filter = () => {
                 <p className="p-1 w-fit"> User Id: {user.id}</p>
                 <p className="p-1 w-fit"> First name: {user.firstName}</p>
                 <p className="p-1 w-fit"> Last name: {user.lastName}</p>
-
-
             </Link >
 
         )
@@ -72,18 +67,22 @@ const Filter = () => {
         content = <div className="self-center"> user cards will appear here</div>
     }
 
+    function handleChange(e) {
+        setInput(e.target.value)
+    }
+
     return (
-        <div className='filter flex flex-col items-center'>
+        <div className='w-full filter flex flex-col items-center'>
             <p>This is a basic filter</p>
             <input
                 className="input my-4 h-6"
                 placeholder="Search by Name"
                 type="text"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => handleChange(e)}
             />
             <p className="mb-6 w-40">example: search for Emma / emma </p>
-            <div className="flex justify-center gap-6 border-2 bg-grey overflow-x-auto h-80 w-full px-10 py-5">
+            <div className="px-10 py-5 flex justify-center gap-6 border-2 bg-grey overflow-x-auto h-80 w-full">
                 {content}
             </div>
         </div>

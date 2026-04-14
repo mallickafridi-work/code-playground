@@ -6,7 +6,10 @@ const UsersProfilePage = () => {
     console.log(params);
 
     return (
-        <div>UsersProfilePage</div>
+        <>
+            <div>UsersProfilePage</div>
+            <p> this page is yet to be designed </p>
+        </>
     )
 }
 
