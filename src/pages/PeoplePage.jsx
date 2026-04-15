@@ -1,7 +1,9 @@
+import { Target } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import '../index.css'
 
-const Filter = () => {
+export default function PeoplePage() {
 
     const [input, setInput] = useState('') // Input Field to look for users 
     const [results, setResults] = useState([]) // to store the filtered user's from user.data after searching 
@@ -40,9 +42,12 @@ const Filter = () => {
     function createCard(user, index) {
 
         return (
-            <Link to={`/${user.id}`}
+            <Link
                 key={user.id}
-                className="flex flex-col items-center border-2 min-w-50 hover:bg-emerald-900 hover:text-white">
+                to={`/${user.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center border-2 min-w-50 hover:bg-emerald-900 hover:text-white" >
                 <div className="flex justify-center items-center">
                     <img src={user.image} alt="" />
                 </div>
@@ -72,22 +77,32 @@ const Filter = () => {
     }
 
     return (
-        <div className='w-full filter flex flex-col items-center'>
-            <p>This is a basic filter</p>
-            <input
-                className="input my-4 h-6"
-                placeholder="Search by Name"
-                type="text"
-                value={input}
-                onChange={(e) => handleChange(e)}
-            />
-            <p className="mb-6 w-40">example: search for Emma / emma </p>
-            <div className="px-10 py-5 flex justify-center gap-6 border-2 bg-grey overflow-x-auto h-80 w-full">
-                {content}
+        <div className="grid grid-rows-[auto_1fr] h-screen">
+            <title>People</title>
+
+            <div className="grid grid-cols-3 items-center bg-(var(--primary)) h-fit">
+                <h1 className="col-start-2 col-span-1 py-2 text-(var(--text)) text-4xl font-bold">People</h1>
             </div>
-        </div>
+
+            <div className='w-full filter flex flex-col items-center'>
+                <input
+                    className="w-100 border-5 border-double rounded bg-white text-black my-4 h-12"
+                    placeholder="Search by Name"
+                    type="text"
+                    value={input}
+                    onChange={(e) => handleChange(e)}
+                />
+                <p className="mb-6 w-40">example: search for Emma / emma </p>
+                <hr className="border-2 w-full" />
+                
+                <div className="border-2 m-2 rounded overflow-y-auto">
+                    <div className="px-10 py-5 flex justify-center gap-6 w-full">
+                        {content}
+                    </div>
+                </div>
+            </div>
+
+        </div >
 
     )
 }
-
-export default Filter

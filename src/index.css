@@ -5,12 +5,11 @@
 }
 
 :root {
-  --text: #1a1a1a;
-  --background: #ffffff;
-  --primary: #007bff;
-  --secondary: #6c757d;
-  --border: #333333;
-
+  --text: #E3E3E3;
+  --background: #1B3C53;
+  --primary: #234C6A;
+  --secondary: #456882;
+  --border: #e0e0e0;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -22,13 +21,12 @@
 
 }
 
-[data-theme="dark"] {
-  --text: #E3E3E3;
-  --background: #1B3C53;
-  --primary: #234C6A;
-  --secondary: #456882;
-  --border: #e0e0e0;
-
+[data-theme="light"] {
+  --text: #1a1a1a;
+  --background: #ffffff;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --border: #333333;
 }
 
 @media (max-width: 1024px) {
@@ -53,13 +51,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.input {
-  color: rgb(0, 0, 0, 1);
-  border: 2px solid var(--border);
-  background-color: whitesmoke;
-  width: 300px;
 }
 
 .submit-button {

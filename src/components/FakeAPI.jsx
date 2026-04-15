@@ -19,6 +19,7 @@ const FakeAPI = () => {
             })
             const data = await response.json()
             setAccessToken(data.accessToken)
+            console.log(data)
         }
         catch (error) {
             console.error(error)
@@ -44,6 +45,8 @@ const FakeAPI = () => {
                     placeholder='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)} />
+                <p>you may try the below username and password and then check the console.</p>
+                <p>un:emilys pw:emilyspass</p>
                 <button className="submit-button" type='submit'> Sign In </button>
             </form>
         </div >
