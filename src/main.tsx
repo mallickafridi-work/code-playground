@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Homepage from './pages/Homepage.jsx'
-import PeoplePage from './pages/PeoplePage.jsx'
+import PeoplePage from './pages/PeoplePage.js'
 import UsersProfilePage from './pages/UsersProfilePage.jsx'
 
 const router = createBrowserRouter([
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   }
 ])
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>,

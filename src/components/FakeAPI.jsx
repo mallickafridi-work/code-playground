@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import exifr from 'exifr'
 
 const FakeAPI = () => {
     const [accessToken, setAccessToken] = useState()

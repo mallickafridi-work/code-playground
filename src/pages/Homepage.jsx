@@ -11,7 +11,7 @@ function Homepage() {
   const projectLink = [
     {
       id: 1,
-      name: 'Filter',
+      name: 'People',
       projectType: 'normal',
       to: '/PeoplePage'
     },
