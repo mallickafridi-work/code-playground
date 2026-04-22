@@ -2,19 +2,25 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Homepage from './pages/Homepage.jsx'
-import PeoplePage from './pages/PeoplePage.js'
+import App from './pages/App.jsx'
+import PeoplePage from './pages/People.jsx'
 import UsersProfilePage from './pages/UsersProfilePage.jsx'
+import FakeAPI from './pages/FakeAPI.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Homepage />,
+    element: <App />,
     errorElement: <div>Error 404 - Page Not Found</div>
   },
   {
-    path: '/PeoplePage',
+    path: '/People',
     element: <PeoplePage />,
+    errorElement: <div>Error 404 - Page Not Found</div>
+  },
+  {
+    path: '/FakeAPI',
+    element: <FakeAPI />,
     errorElement: <div>Error 404 - Page Not Found</div>
   },
   {

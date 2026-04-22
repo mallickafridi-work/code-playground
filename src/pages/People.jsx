@@ -1,54 +1,16 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
-import '../index.css'
-import ThemeToggle from "../components/ThemeToggle"
-import Clock from "../components/Clock";
-
-type User = {
-    id: number,
-    image: string,
-    firstName: string,
-    lastName: string
-}
+import Header from "../components/1_Header/Header";
+import Input from "../components/People/Input";
 
 export default function PeoplePage() {
 
-    const [data, setData] = useState(null)
     const [input, setInput] = useState('') // Input Field to look for users 
     const [results, setResults] = useState([]) // to store the filtered user's from user.data after searching 
     const [error, setError] = useState(null)
 
-    useEffect(() => {
-        const API_URL = 'https://dummyjson.com/users'
-
-        async function getData() {
-            try {
-                const response = await fetch(API_URL)
-                const data = await response.json()
-
-                // 👇 Below Function is to filter users from data.users if matches are found
-
-                const filteredUsers = data.users.filter((element: User) => {
-                    const query = input.trim().toLowerCase();
-                    // if (query.length < 1) return false
-                    const firstName = element.firstName?.toLowerCase() || "";
-                    const lastName = element.lastName?.toLowerCase() || "";
-                    return firstName.includes(query) || lastName.includes(query);
-                });
-                setResults(filteredUsers)
-            }
-
-            catch (err: any) {
-                console.error(err)
-                setError(err.message);
-            }
-        }
-        getData();
-    }, [input])
-
-    // 👇 Below code creates Card Div for users
-
-    function createCard(user: User, index: number) {
+    // 👇 Below Function creates Card Div for users
+    function createCard(user, index) {
 
         return (
             <Link
@@ -78,29 +40,13 @@ export default function PeoplePage() {
         content = <div className="text-center"> user doesn't exist in the records</div>
     }
 
-    function handleChange(e: any) {
-        setInput(e.target.value)
-    }
-
     return (
         <>
             <title>People</title>
             <div className="grid grid-rows-[auto_auto_1fr] h-screen w-screen">
 
-                <div className="grid grid-cols-3 items-center bg-(var(--primary)) h-fit"> {/* header-container on grid-row-1 */}
-                    <div className="col-start-1 col-span-1"> <Clock /> </div>
-                    <h1 className="col-start-2 col-span-1 mb-2 text-(var(--text)) text-4xl font-bold">People</h1>
-                    <div className="col-start-3 col-span-1"> <ThemeToggle /> </div>
-                </div>
-
-                {/* Search-Input on grid-row-2 */}
-                <input
-                    className="row-start-2 row-span-1 border-2 rounded bg-white text-black mx-10 px-10 h-10"
-                    placeholder="Search by Name"
-                    type="text"
-                    value={input}
-                    onChange={(e) => handleChange(e)}
-                />
+                <Header title="People" />
+                <Input input={input} setInput={setInput} setResults={setResults} setError={setError} />
 
                 <div className="row-start-3 row-span-1 h-full overflow-y-auto"> {/* main-container on grid-row-3 */}
                     <div className="grid grid-cols-[auto_1fr] gap-2 p-2 h-full">
@@ -120,6 +66,5 @@ export default function PeoplePage() {
 
             </div>
         </>
-
     )
 }
