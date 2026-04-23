@@ -18,7 +18,10 @@ export default function PeoplePage() {
                 to={`/${user.id}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center border-2 rounded-2xl w-50 h-50 hover:bg-blue-950 hover:text-white" >
+                className="w-45 h-48 rounded flex flex-col 
+                items-center justify-center
+                hover:bg-blue-950 hover:-translate-y-2 hover:scale-110
+                transition-all delay-150 duration-400 ease-in-out" >
                 <div className="flex justify-center items-center">
                     <img src={user.image} alt="" />
                 </div>
@@ -34,10 +37,10 @@ export default function PeoplePage() {
     let content;
     if (error) {
         content = <div className="self-center"> {error} </div>
-    } else if (results.length !== 0) {
-        content = results.map((user, index) => createCard(user, index))
     } else if (input.length > 0 && results.length === 0) {
         content = <div className="text-center"> user doesn't exist in the records</div>
+    } else {
+        content = results.map((user, index) => createCard(user, index))
     }
 
     return (
@@ -49,14 +52,15 @@ export default function PeoplePage() {
                 <Input input={input} setInput={setInput} setResults={setResults} setError={setError} />
 
                 <div className="row-start-3 row-span-1 h-full overflow-y-auto"> {/* main-container on grid-row-3 */}
-                    <div className="grid grid-cols-[auto_1fr] gap-2 p-2 h-full">
+                    <div className="grid grid-cols-[auto_1fr] gap-2 px-2 h-full">
 
                         {/* Filter-Panel on col-1*/}
                         <div className="col-start-1 col-span-1 min-w-60 p-2 border-2 overflow-y-auto">
                             Filter Panel
                         </div>
 
-                        <div className="px-12 py-6 border-2 overflow-y-auto"> {/* People-Card-Container on col-2 */}
+                        {/* People-Card-Container on col-2 */}
+                        <div className="px-18 py-6 border-2 overflow-y-auto">
                             <div className="grid grid-cols-4 gap-y-6 gap-x-6">
                                 {content}
                             </div>

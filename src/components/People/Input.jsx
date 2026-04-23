@@ -36,13 +36,15 @@ const Input = ({ input, setInput, setResults, setError }) => {
     return (
         <>
             {/* Search-Input on grid-row-2 */}
-            < input
-                className="row-start-2 row-span-1 border-2 rounded bg-white text-black mx-10 px-10 h-10"
-                placeholder="Search by Name"
-                type="text"
-                value={input}
-                onChange={(e) => handleChange(e)}
-            />
+            <div className="h-fit py-2 px-20">
+                < input
+                    className="w-full row-start-2 row-span-1 border-2 rounded bg-white text-black h-10 px-10"
+                    placeholder="Search by Name"
+                    type="text"
+                    value={input}
+                    onChange={(e) => handleChange(e)}
+                />
+            </div>
         </>
     )
 }
