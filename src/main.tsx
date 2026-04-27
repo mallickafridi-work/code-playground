@@ -1,37 +1,40 @@
+import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './pages/App.jsx'
-import PeoplePage from './pages/People.jsx'
-import UsersProfilePage from './pages/UsersProfilePage.jsx'
-import FakeAPI from './pages/FakeAPI.jsx'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { routeTree } from './routeTree.gen.js'
+import { ThemeProvider } from "@material-tailwind/react"
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <div>Error 404 - Page Not Found</div>
+const queryClient = new QueryClient()
+
+// Set up a Router instance
+const router = createRouter({
+  routeTree,
+  context: {
+    queryClient,
   },
-  {
-    path: '/People',
-    element: <PeoplePage />,
-    errorElement: <div>Error 404 - Page Not Found</div>
-  },
-  {
-    path: '/FakeAPI',
-    element: <FakeAPI />,
-    errorElement: <div>Error 404 - Page Not Found</div>
-  },
-  {
-    path: '/:userId',
-    element: <UsersProfilePage />,
-    errorElement: <div>Error 404 - Page Not Found</div>
+  defaultPreload: 'intent',
+  // Since we're using React Query, we don't want loader calls to ever be stale
+  // This will ensure that the loader is always called when the route is preloaded or visited
+  defaultPreloadStaleTime: 0,
+  scrollRestoration: true,
+})
+
+// Register things for typesafety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
   }
-])
+}
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
+  </StrictMode>
 )
+

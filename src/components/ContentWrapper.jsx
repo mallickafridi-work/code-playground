@@ -1,7 +1,8 @@
 import React from 'react'
-import Blocks from '../Blocks';
-import FakeAPI from '../FakeAPI';
-import LeftPanel from './Content_Components/LeftPanel';
+import Blocks from './Blocks';
+// import FakeAPI from './FakeAPI';
+import LeftPanel from './LeftPanel';
+import { Button } from "@material-tailwind/react";
 
 const ContentWrapper = () => {
 
@@ -15,7 +16,9 @@ const ContentWrapper = () => {
                     <div className='app py-5'>
                         <Blocks />
                         <hr className='my-5' />
-                        <FakeAPI />
+                        <Button></Button>
+                        <hr className='my-5' />
+                        <Button>Button</Button>
                     </div>
                 </div>
             </div>

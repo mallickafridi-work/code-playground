@@ -23,9 +23,12 @@ const ThemeToggle = () => {
                  text-gray-800 dark:text-gray-200 
                  transition-transform hover:scale-105"
         >
-            {theme === "light" ? <Moon className="w-6 h-6" /> : <Sun className="w-6 h-6" />}
+            {theme === "light" ? <Sun />
+                : <Moon />
+            }
         </button>
     )
 }
 
 export default ThemeToggle
+

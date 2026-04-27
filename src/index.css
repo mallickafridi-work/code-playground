@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 * {
   box-sizing: border-box;
@@ -6,7 +10,7 @@
 
 :root {
   --text: #E3E3E3;
-  --background: #1B3C53;
+  --background: #52616B;
   --primary: #234C6A;
   --secondary: #456882;
   --border: #e0e0e0;
