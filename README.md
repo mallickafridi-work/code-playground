@@ -19,6 +19,10 @@ The goal of this project is to have a flexible environment for:
 * **Vite**
 * **JavaScript**
 * **CSS**
+* **Libraries** - **"@material-tailwind:, 
+                    "@tanstack/react-query",
+                    "@tanstack/react-router",
+                    "lucide-react"**
 
 ## 📁 About the Repository
 
