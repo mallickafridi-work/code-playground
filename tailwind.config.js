@@ -1,10 +1,11 @@
-// tailwind.config.js
 import withMT from "@material-tailwind/react/utils/withMT";
 
 export default withMT({
+    darkMode: "class", // enables dark mode via class
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
+        "./node_modules/@material-tailwind/react/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
         extend: {},

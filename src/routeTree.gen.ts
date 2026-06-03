@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PeopleRouteImport } from './routes/people'
 import { Route as FakeAPIRouteImport } from './routes/FakeAPI'
+import { Route as ContextAPIRouteImport } from './routes/ContextAPI'
 import { Route as IndexRouteImport } from './routes/index'
 
 const PeopleRoute = PeopleRouteImport.update({
@@ -23,6 +24,11 @@ const FakeAPIRoute = FakeAPIRouteImport.update({
   path: '/FakeAPI',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContextAPIRoute = ContextAPIRouteImport.update({
+  id: '/ContextAPI',
+  path: '/ContextAPI',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ContextAPI': typeof ContextAPIRoute
   '/FakeAPI': typeof FakeAPIRoute
   '/people': typeof PeopleRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ContextAPI': typeof ContextAPIRoute
   '/FakeAPI': typeof FakeAPIRoute
   '/people': typeof PeopleRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ContextAPI': typeof ContextAPIRoute
   '/FakeAPI': typeof FakeAPIRoute
   '/people': typeof PeopleRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/FakeAPI' | '/people'
+  fullPaths: '/' | '/ContextAPI' | '/FakeAPI' | '/people'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/FakeAPI' | '/people'
-  id: '__root__' | '/' | '/FakeAPI' | '/people'
+  to: '/' | '/ContextAPI' | '/FakeAPI' | '/people'
+  id: '__root__' | '/' | '/ContextAPI' | '/FakeAPI' | '/people'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContextAPIRoute: typeof ContextAPIRoute
   FakeAPIRoute: typeof FakeAPIRoute
   PeopleRoute: typeof PeopleRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FakeAPIRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ContextAPI': {
+      id: '/ContextAPI'
+      path: '/ContextAPI'
+      fullPath: '/ContextAPI'
+      preLoaderRoute: typeof ContextAPIRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContextAPIRoute: ContextAPIRoute,
   FakeAPIRoute: FakeAPIRoute,
   PeopleRoute: PeopleRoute,
 }

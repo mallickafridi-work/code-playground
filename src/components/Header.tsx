@@ -3,11 +3,11 @@ import ThemeToggle from "./ThemeToggle"
 
 const Header = ({ title }: { title: string }) => {
     return (
-        <div className="bg-[#1E2022] grid grid-cols-3 items-center bg-(var(--primary)) h-fit">
+        <div className="grid grid-cols-3 items-center h-fit bg-background">
 
-            <div className=""> <Clock /> </div>
-            <h1 className="py-2 text-(var(--text)) text-4xl font-bold">{title}</h1>
-            <div className=""> <ThemeToggle /> </div>
+            <div className="h-full w-full py-2"> <Clock /> </div>
+            <h1 className="text-4xl py-2 font-bold text-(--text)">{title}</h1>
+            <div className="h-full w-full py-2"> <ThemeToggle /> </div>
 
         </div>
     )

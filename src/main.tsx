@@ -24,8 +24,12 @@ const router = createRouter({
 // Register things for typesafety
 declare module '@tanstack/react-router' {
   interface Register {
-    router: typeof router
-  }
+    router: typeof router,
+    meta: {
+      title?: string
+      description?: string
+    }
+  } 
 }
 
 createRoot(document.getElementById('root') as HTMLElement).render(
@@ -37,4 +41,3 @@ createRoot(document.getElementById('root') as HTMLElement).render(
     </QueryClientProvider>
   </StrictMode>
 )
-

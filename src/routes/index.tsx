@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
 function Home() {
 
   return (
-    <div className="grid grid-rows-[auto_1fr] h-screen">
+    <div className="my-0 mx-auto text-center grid grid-rows-[auto_1fr] h-screen bg-(--bg) text-(--text)">
       <Header title="code-playground" />
       <ContentWrapper />
     </div >
