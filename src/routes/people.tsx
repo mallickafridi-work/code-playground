@@ -71,12 +71,8 @@ interface UsersResponse {
   limit: number;
 }
 
-export const Route = createFileRoute('/people')({
+export const Route = createFileRoute('/People')({
   component: RouteComponent,
-  meta: () => ({
-    title: 'People',
-    description: 'this is people-page'
-  })
 })
 
 function RouteComponent() {
@@ -151,7 +147,7 @@ function RouteComponent() {
   } else {
     content =
       <div className="px-6 content-start rounded">
-        <div className="p-10 flex flex-wrap justify-center gap-y-10 gap-x-10">
+        <div className="p-10 flex flex-wrap gap-y-10 gap-x-10">
           {filteredUsers.map((user: User) => createPeopleCard(user))}
         </div >
       </div>

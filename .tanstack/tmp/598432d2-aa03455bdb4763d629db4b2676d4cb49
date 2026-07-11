@@ -1,10 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/FakeAPI')({
+export const Route = createFileRoute('/ReactHooks')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <div>Hello "/FakeAPI"!</div>
+  return <div>Hello "/ReactHooks"!</div>
 }
-    

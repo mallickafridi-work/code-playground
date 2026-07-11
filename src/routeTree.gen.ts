@@ -9,24 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as PeopleRouteImport } from './routes/people'
-import { Route as FakeAPIRouteImport } from './routes/FakeAPI'
-import { Route as ContextAPIRouteImport } from './routes/ContextAPI'
+import { Route as ReactHooksRouteImport } from './routes/ReactHooks'
+import { Route as PeopleRouteImport } from './routes/People'
+import { Route as AnilistRouteImport } from './routes/Anilist'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ReactHooksRoute = ReactHooksRouteImport.update({
+  id: '/ReactHooks',
+  path: '/ReactHooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PeopleRoute = PeopleRouteImport.update({
-  id: '/people',
-  path: '/people',
+  id: '/People',
+  path: '/People',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FakeAPIRoute = FakeAPIRouteImport.update({
-  id: '/FakeAPI',
-  path: '/FakeAPI',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContextAPIRoute = ContextAPIRouteImport.update({
-  id: '/ContextAPI',
-  path: '/ContextAPI',
+const AnilistRoute = AnilistRouteImport.update({
+  id: '/Anilist',
+  path: '/Anilist',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,59 +37,59 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/ContextAPI': typeof ContextAPIRoute
-  '/FakeAPI': typeof FakeAPIRoute
-  '/people': typeof PeopleRoute
+  '/Anilist': typeof AnilistRoute
+  '/People': typeof PeopleRoute
+  '/ReactHooks': typeof ReactHooksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/ContextAPI': typeof ContextAPIRoute
-  '/FakeAPI': typeof FakeAPIRoute
-  '/people': typeof PeopleRoute
+  '/Anilist': typeof AnilistRoute
+  '/People': typeof PeopleRoute
+  '/ReactHooks': typeof ReactHooksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/ContextAPI': typeof ContextAPIRoute
-  '/FakeAPI': typeof FakeAPIRoute
-  '/people': typeof PeopleRoute
+  '/Anilist': typeof AnilistRoute
+  '/People': typeof PeopleRoute
+  '/ReactHooks': typeof ReactHooksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ContextAPI' | '/FakeAPI' | '/people'
+  fullPaths: '/' | '/Anilist' | '/People' | '/ReactHooks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ContextAPI' | '/FakeAPI' | '/people'
-  id: '__root__' | '/' | '/ContextAPI' | '/FakeAPI' | '/people'
+  to: '/' | '/Anilist' | '/People' | '/ReactHooks'
+  id: '__root__' | '/' | '/Anilist' | '/People' | '/ReactHooks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ContextAPIRoute: typeof ContextAPIRoute
-  FakeAPIRoute: typeof FakeAPIRoute
+  AnilistRoute: typeof AnilistRoute
   PeopleRoute: typeof PeopleRoute
+  ReactHooksRoute: typeof ReactHooksRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/people': {
-      id: '/people'
-      path: '/people'
-      fullPath: '/people'
+    '/ReactHooks': {
+      id: '/ReactHooks'
+      path: '/ReactHooks'
+      fullPath: '/ReactHooks'
+      preLoaderRoute: typeof ReactHooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/People': {
+      id: '/People'
+      path: '/People'
+      fullPath: '/People'
       preLoaderRoute: typeof PeopleRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/FakeAPI': {
-      id: '/FakeAPI'
-      path: '/FakeAPI'
-      fullPath: '/FakeAPI'
-      preLoaderRoute: typeof FakeAPIRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ContextAPI': {
-      id: '/ContextAPI'
-      path: '/ContextAPI'
-      fullPath: '/ContextAPI'
-      preLoaderRoute: typeof ContextAPIRouteImport
+    '/Anilist': {
+      id: '/Anilist'
+      path: '/Anilist'
+      fullPath: '/Anilist'
+      preLoaderRoute: typeof AnilistRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -104,9 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ContextAPIRoute: ContextAPIRoute,
-  FakeAPIRoute: FakeAPIRoute,
+  AnilistRoute: AnilistRoute,
   PeopleRoute: PeopleRoute,
+  ReactHooksRoute: ReactHooksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

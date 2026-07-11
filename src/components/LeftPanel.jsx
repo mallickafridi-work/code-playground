@@ -12,16 +12,16 @@ const LeftPanel = () => {
         },
         {
             id: 2,
-            name: 'FakeAPI',
-            projectType: 'intermediate',
-            to: '/FakeAPI'
+            name: 'React Hooks',
+            projectType: 'normal',
+            to: '/ReactHooks'
         },
-        {
+                {
             id: 3,
-            name: 'ContextAPI',
-            projectType: 'Basic',
-            to: '/ContextAPI'
-        }
+            name: 'Ani-List',
+            projectType: 'advanced',
+            to: '/Anilist'
+        },
     ]
 
     function createProjectLink(project, index) {
