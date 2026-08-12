@@ -4,11 +4,10 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { routeTree } from './routeTree.gen.js'
-import { ThemeProvider } from "@material-tailwind/react"
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 
-  
+
 const queryClient = new QueryClient()
 
 // Set up a Router instance
@@ -38,11 +37,9 @@ declare module '@tanstack/react-router' {
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
-      </ThemeProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </QueryClientProvider>
   </StrictMode>
 )

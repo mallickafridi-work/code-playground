@@ -2,7 +2,7 @@ import Header from '@/components/Header'
 import SimpleCounter from '@/components/React Hooks/SimpleCounter'
 import CharacterCounter from '@/components/React Hooks/CharacterCounter';
 import Clock from '@/components/React Hooks/Clock';
-import Fetch from '@/components/React Hooks/Fetch';
+import Unmount from '@/components/React Hooks/Unmount';
 import { useSelector } from 'react-redux'
 import type { RootState } from '@/store/store';
 import { createFileRoute } from '@tanstack/react-router'
@@ -20,8 +20,7 @@ interface Card {
 
 function RouteComponent() {
 
-  const title = useSelector(((state: RootState) => state.title.value))
-
+  const title = useSelector((state: RootState) => state.title.value)
   const Cards: Card[] = useMemo(() => [
     {
       id: uuidv4(),
@@ -37,8 +36,8 @@ function RouteComponent() {
     },
     {
       id: uuidv4(),
-      card: <Fetch />
-    },
+      card: <Unmount />
+    }
   ], [])
 
   return <div className='my-0 mx-auto grid grid-rows-[auto_1fr] h-screen w-screen text-center bg-secondary text-text'>

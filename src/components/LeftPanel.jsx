@@ -16,7 +16,7 @@ const LeftPanel = () => {
             projectType: 'normal',
             to: '/ReactHooks'
         },
-                {
+        {
             id: 3,
             name: 'Ani-List',
             projectType: 'advanced',
@@ -29,12 +29,11 @@ const LeftPanel = () => {
             <Link
                 key={index}
                 to={project.to}
-                className=""
-                target="_blank"
+                className=""    
                 rel="noopener noreferrer"
             >
                 <div className='bg-card rounded content-center my-2 py-2 hover:bg-secondary hover:scale-110
-                transition-all duration-400 ease-out'>
+                transition-transform duration-400 ease-out'>
                     <h1 className='font-medium text-lg'>{project.name}</h1>
                 </div>
             </Link>

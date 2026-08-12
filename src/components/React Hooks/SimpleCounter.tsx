@@ -1,18 +1,28 @@
-import { useState, useEffect } from "react"
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "@/store/store";
+import { useState, useEffect, Activity } from "react"
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "@/store/store";
 import { changeTitle } from '@/store/TitleSlice';
 
-
 const SimpleCounter = () => {
+
+    const mount = useSelector((state: RootState) => state.mount)
+
+    return <>
+        <Activity mode={mount.value ? "visible" : "hidden"}>
+            <OtherComponent />
+        </Activity>
+    </>
+}
+
+export default SimpleCounter
+
+function OtherComponent() {
 
     const dispatch = useDispatch<AppDispatch>()
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        if (count >= 5) {
-            dispatch(changeTitle("New Title"))
-        }
+        dispatch(changeTitle(count))
     }, [count])
 
     return (
@@ -35,5 +45,3 @@ const SimpleCounter = () => {
         </div>
     )
 }
-
-export default SimpleCounter

@@ -4,8 +4,10 @@ const titleSlice = createSlice({
     name: 'title',
     initialState: { value: 'React Hooks' },
     reducers: {
-        changeTitle: (state, action: PayloadAction<string>) => {
-            state.value = action.payload
+        changeTitle: (state, action: PayloadAction<number>) => {
+            (action.payload === 5)
+                ? state.value = 'Banana'
+                : state.value = 'React Hooks'
         }
     }
 })

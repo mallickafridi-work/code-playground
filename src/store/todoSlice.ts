@@ -1,11 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
+type Todo = { id: number; text: string };
+
 export const todosApi = createApi({
     reducerPath: 'todosApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000' }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:4000" }),
     tagTypes: ['Todos'],
     endpoints: (builder) => ({
-        getTodos: builder.query({
+        getTodos: builder.query<Todo[], void>({
             query: () => '/todos',
             providesTags: ['Todos']
         }),
